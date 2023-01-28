@@ -1,0 +1,367 @@
+<script lang="javascript">
+  function togglePassword() {
+  var x = document.getElementById("user_password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function togglePasswordConfirm() {
+  var x = document.getElementById("user_passwordconfirm");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+</script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+      <div class="card cardbox">
+        <div class="card-header">Register</div>
+        <div class="card-body">
+      
+    
+
+          
+          <div class="form-group">
+            
+            <form action="register_process.php" id="login-nav" method="post" role="form" class="form" accept-charset="UTF-8">
+
+              <div class="form-group">
+                <label class="sr-only">Username</label>
+                <input type="text" id="user_name" name="user_name" class="form-control"
+                value="" placeholder="Username" required>
+              </div>
+              
+              <!-- password group -->
+              <div class="form-group">
+                
+                <!-- password label -->
+                <label class="sr-only">Password</label>
+                <!-- password input -->
+                <div class="input-group">
+                  <input type="password" id="user_password" name="user_password" class="form-control" data-placement="bottom" data-toggle="popover" data-container="body"
+				  data-html="true" value="" placeholder="Password" required>
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-append1" onclick="togglePassword()">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+                <!-- password remember & results -->
+                 
+                <!-- Password Rules -->
+                <div id="reg_passwordrules" class="hide password-rule mt-2"><small>
+
+                  <ul class="list-unstyled">
+                    <li class="">
+                      <span class="eight-character"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                        min 8 character</li>
+                    <li class="">
+                      <span class="low-upper-case"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                        min 1 uppercase & 1 lowercase character</li>
+                    <li class="">
+                      <span class="one-number"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                        min 1 number</li>
+                    <li class="">
+                      <span class="one-special-char"><i class="fa fa-check-circle" aria-hidden="true"></i></span>
+                        min 1 special char (!@#$%^&*)</li>
+                  </ul>
+                  </small></div>
+
+              </div>
+              
+              <!-- password-confirm group -->
+              <div class="form-group">
+
+                <!-- password-confirm label -->
+                <label class="sr-only">Password Confirm</label>
+                  <!-- password-confirm input -->
+                <div class="input-group">
+                  <input type="password" id="user_passwordconfirm" class="form-control" data-placement="bottom" 
+				  data-toggle="popover" data-container="body" data-html="true" placeholder="Password Confirm" required>
+
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-append2" onclick="togglePasswordConfirm()">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  
+                </div>
+                <!-- password-confirm error message -->
+                <div class="help-block text-right">
+                  <small><span id="error-confirmpassword" class="hide pull-right block-help">
+                  <i class="fa fa-info-circle text-danger" aria-hidden="true"></i>Don't match password'</span></small>
+                </div>
+
+              </div>
+        <!--Full Name-->
+              <div class="form-group">
+                <label class="sr-only">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control"
+                value="" placeholder="Full Name" required>
+              </div>
+           
+			  <!-- email group -->
+              <div class="form-group">
+                <label class="sr-only">E-mail Address</label>
+                <input type="email" id="user_email" name="user_email" class="form-control" 
+				        value="" placeholder="Email Address">
+              </div>
+
+              <div class="form-group">
+                <input type="text" maxlength="10" placeholder="Phone Number" name="phone" id="phone" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <input type="text" placeholder="Your Age" maxlength="3" class="form-control" name="age" id="age">
+              </div>
+              <div class="form-group">
+                <label class="sr-only">Questions</label>
+                  <select name="bloodgroup" id="bloodgroup" class="form-control" required>
+                    <option value="select" selected>Select Blood Group</option>
+                    <option value="A+">A +ve</option>
+                    <option value="A-">A -ve</option>
+                    <option value="B+">B +ve</option>	
+                    <option value="B-">B -ve</option>
+                    <option value="O+">O +ve</option>
+                    <option value="O-">O -ve</option>
+                    <option value="AB+">AB +ve</option>
+                    <option value="AB-">AB -ve</option>
+                  </select>
+              </div>
+                <div class="form-group">
+                  <select name="gender" id="gender" class="form-control"  required>
+                    <option value="select" selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>	
+                  </select>
+                </div>
+              <div class="form-group">
+                <label class="sr-only">Weight</label>
+                <input type="text" id="weight" name="weight" class="form-control"
+                       value="" placeholder="Weight">
+              </div>
+       
+              <div class="form-group">
+                <center>
+                <button id="submit" name="submit" value="1" class="btn btn-info btn-md" style="background-color:#000000;width: 200;max-width: 180;" onmouseover="this.style.backgroundColor='red';"onmouseout="this.style.backgroundColor='#000000';">Create Account</button>
+                </center>
+                <div id="sign-up-popover" class="hide"><p>is empty</p></div>
+              </div>
+             
+			  <!-- Remember -->
+              <div class="form-check">
+                <input type="checkbox" id="reg_remember" name="user_remember" class="form-check-input" value="1">
+                <label class="form-check-label">Remember me</label>
+              </div>
+
+            </form>
+          </div>
+		  
+          <div class="login-or"><hr class="hr-or"></div>
+		  <!-- Links -->
+          <div class="bottom text-center">
+            Are you user? <a href="login.html" style="color:#f73b3b"><b>Login</b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .row{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.masthead-text{
+  height: 300px;
+}
+
+.form-control{
+  height: 45px;
+}
+
+.login-or {
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+  }
+  .hr-or {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(bg-pic-6.jpg);
+  background-size:contain;
+  backdrop-filter: blur(5px);
+}
+
+.progress {
+  height: 5px;
+}
+
+.form-horizontal {
+  padding: 25px 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.divider {
+  position: absolute;
+  height: 2px;
+  border: 1px solid #eee;
+  width: 100%;
+  top: 10px;
+  z-index: -5;
+}
+
+.ex-account {
+  position: relative;
+}
+
+.ex-account p {
+  background-color: rgba(255, 255, 255, 0.41);
+}
+
+select:hover {
+  color: #444645;
+  background: #ddd;
+}
+
+.block-help {
+        font-weight: 300;
+    }
+
+.mar-top-bot-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.hide {
+  display: none;
+}
+
+.card-header{
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.cardbox{
+  border: 3px solid #000000;
+  background-color: #EAEAEA;
+  margin-right: 30px;
+  margin-left: -60px;
+}
+
+.block{
+  width: 100px;
+  display: inline-block;
+}
+/*
+#reg_submit{
+  border-radius: 25px;
+}*/
+</style>
